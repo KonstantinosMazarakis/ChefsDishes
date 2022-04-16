@@ -1,0 +1,20 @@
+@model Chef
+<h1 class="text-center">Add a Chef!</h1>
+<a href="/">Home</a>
+<form class="mt-5 d-flex frm" action="/chef/new/post" method="post">
+<div class="flex">
+    <label class="d-block">First Name: </label>
+    <span class="text-danger d-block" asp-validation-for="FirstName"></span>
+    <input asp-for="FirstName">
+    <label class="d-block">Last Name: </label>
+    <span class="text-danger d-block" asp-validation-for="LastName"></span>
+    <input asp-for="LastName">
+</div>
+<div class="flex">
+    <label class="d-block">Date of Birth: </label>
+    <span class="text-danger d-block" asp-validation-for="DateOfBirth"></span>
+    <input asp-for="DateOfBirth">
+    <input type="submit" class="d-block btn btn-primary mt-4" value="Add Chef" >
+</div>
+</form>
+

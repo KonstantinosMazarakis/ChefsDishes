@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Chef
+
+<div class="text-center">
+    <span>Chefs</span> | <a href="/dishes">Dishes</a>
+    <a href="/chef/new" class="ms-5 add d-block">Add a Chef</a>
+    <p>Check out our roster of Chefs!</p>
+    <hr>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col"># of Dishes</th>
+    </tr>
+  </thead>
+  <tbody>
+
+@{
+    foreach(Chef i in ViewBag.AllChefs)
+    {
+        <tr>
+        <td>@i.FirstName</td>
+        <td>@i.DateOfBirth</td>
+        <td>@i.Dishes.Count</td>
+        </tr>
+    }
+}
+</tbody>
+</table>
+</div>

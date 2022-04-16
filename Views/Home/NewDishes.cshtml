@@ -1,0 +1,39 @@
+@model Dish
+<h1 class="text-center">Add a Dish!</h1>
+<a href="/">Home</a>
+<form class="mt-5 d-flex frm" action="/dishes/new/post" method="post">
+<div class="flex">
+    <label class="d-block">Name of Dish: </label>
+    <span class="text-danger d-block" asp-validation-for="DishName"></span>
+    <input asp-for="DishName">
+    <label class="d-block"># of Calories: </label>
+    <span class="text-danger d-block" asp-validation-for="Calories"></span>
+    <input asp-for="Calories">
+    <label class="d-block">Description:</label>
+    <span class="text-danger d-block" asp-validation-for="Description"></span>
+    <textarea asp-for="Description" cols="30" rows="10"></textarea>
+</div>
+<div class="flex">
+    <label class="d-block">Chef: </label>
+    <select asp-for="ChefId">
+        @{foreach(Chef i in ViewBag.AllChefs)
+            {
+                <option value="@i.ChefId">@i.FirstName @i.LastName</option>
+            }
+        }
+    </select>
+    <input type="submit" class="d-block btn btn-primary mt-5" value="Add Dish" >
+</div>
+<div class="flex">
+    <label class="d-block">Tastiness: </label>
+    <span class="text-danger d-block" asp-validation-for="Tastiness"></span>
+    <select asp-for="Tastiness">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+</div>
+</form>
+
