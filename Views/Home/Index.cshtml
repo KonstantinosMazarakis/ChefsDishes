@@ -23,7 +23,12 @@
     {
         <tr>
         <td>@i.FirstName</td>
-        <td>@i.DateOfBirth</td>
+        @{var today = DateTime.Today;
+              var age = today.Year - i.DateOfBirth.Year;
+              if(i.DateOfBirth.Date > today.AddYears(-age)) age--;
+            }<td>
+              @age
+            </td>
         <td>@i.Dishes.Count</td>
         </tr>
     }
